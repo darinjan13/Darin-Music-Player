@@ -1,0 +1,99 @@
+{
+    "$schema": "../gen/schemas/desktop-schema.json",
+    "identifier": "default",
+    "description": "Capability for the main window",
+    "windows": [
+        "main"
+    ],
+    "permissions": [
+        "core:default",
+        "dialog:default",
+        "fs:allow-read",
+        "fs:allow-write",
+        "fs:allow-exists",
+        "fs:allow-rename",
+        "fs:allow-remove",
+        "fs:default",
+        {
+            "identifier": "fs:allow-read-dir",
+            "allow": [
+                {
+                    "path": "D:\\**"
+                },
+                {
+                    "path": "C:\\**"
+                }
+            ]
+        },
+        {
+            "identifier": "fs:allow-read-file",
+            "allow": [
+                {
+                    "path": "D:\\**"
+                },
+                {
+                    "path": "C:\\**"
+                }
+            ]
+        },
+        {
+            "identifier": "fs:allow-write-file",
+            "allow": [
+                {
+                    "path": "D:\\**"
+                },
+                {
+                    "path": "C:\\**"
+                }
+            ]
+        },
+        "shell:allow-execute",
+        {
+            "identifier": "shell:allow-spawn",
+            "allow": [
+                {
+                    "name": "bin/yt-dlp",
+                    "cmd": "bin/yt-dlp",
+                    "sidecar": true,
+                    "args": [
+                        {
+                            "validator": "--newline"
+                        },
+                        {
+                            "validator": "--(yes|no)-playlist"
+                        },
+                        {
+                            "validator": "-x"
+                        },
+                        {
+                            "validator": "--audio-format"
+                        },
+                        {
+                            "validator": "mp3"
+                        },
+                        {
+                            "validator": "--progress"
+                        },
+                        {
+                            "validator": "--progress-template"
+                        },
+                        {
+                            "validator": ".*"
+                        },
+                        {
+                            "validator": ".*"
+                        },
+                        {
+                            "validator": "-o"
+                        },
+                        {
+                            "validator": ".*"
+                        }
+                    ]
+                }
+            ]
+        },
+        "store:default",
+        "store:allow-load"
+    ]
+}
